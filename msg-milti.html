@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Playable SMS Message">
+    <meta property="og:description" content="Advanced Playable HTML Page with SMS, WhatsApp, etc.support Click Now & Be Amazed">
+    <meta property="og:image" content="https://cdn.playable.video/demo.playable.video/demo:6046232980750336/1/6046232980750336/16:9/-/0.gif">
+    <meta property="og:url" content="">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Playable SMS">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Metamorphous" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open Sans" rel="stylesheet">
+    <title>THE WAR WITHIN™</title>
+    <style>
+        @font-face {
+            font-family: 'Sailec Bold';
+            src: url(https://appboy-images.com/appboy/communication/assets/font_assets/files/5f2d540126e78f1669f53229/original.otf?1596806145) format('truetype')
+        }
+
+        @font-face {
+            font-family: 'Sailec Normal';
+            src: url(https://appboy-images.com/appboy/communication/assets/font_assets/files/5f2d5401ff0a7415251998d6/original.otf?1596806145) format('truetype')
+        }
+
+        :root {
+            --font-title: "Metamorphous", sans-serif;
+            --font-button: "Roboto", sans-serif;
+            --font-description: "Open Sans", sans-serif
+        }
+
+        *,
+        ::after,
+        ::before {
+            box-sizing: border-box
+        }
+
+        ol[class],
+        ul[class] {
+            padding: 0
+        }
+
+        blockquote,
+        body,
+        dd,
+        dl,
+        figcaption,
+        figure,
+        h1,
+        h2,
+        h3,
+        h4,
+        li,
+        ol[class],
+        p,
+        ul[class] {
+            margin: 0
+        }
+
+        body {
+            scroll-behavior: smooth;
+            text-rendering: optimizeSpeed;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale
+        }
+
+        ol[class],
+        ul[class] {
+            list-style: none
+        }
+
+        a:not([class]) {
+            text-decoration-skip-ink: auto
+        }
+
+        img {
+            max-width: 100%;
+            display: block
+        }
+
+        article>*+* {
+            margin-top: 1em
+        }
+
+        a,
+        button,
+        input,
+        select,
+        textarea {
+            font: inherit
+        }
+
+        a,
+        button {
+            border: none;
+            background-color: transparent;
+            text-decoration: none
+        }
+
+        .overlay {
+            display: flex;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: 100vw;
+            background-color: rgba(0, 0, 0, .7);
+            z-index: 99999
+        }
+
+        .modal {
+            height: auto;
+            max-width: 330px;
+            flex-basis: 330px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            position: relative
+        }
+
+        .modal__image {
+            height: 330px
+        }
+
+        .modal__image video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px 10px 0 0
+        }
+
+        .modal__content {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            padding: 20px 14px 20px 14px;
+            background-color: #000;
+            border-radius: 0 0 10px 10px
+        }
+
+        .modal__cross {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            height: 28px;
+            width: 28px;
+            cursor: pointer;
+            z-index: 1;
+            border-radius: 50%;
+            background: rgba(128, 128, 128, .2);
+            display: flex !important;
+            justify-content: center;
+            padding: 1px
+        }
+
+        .modal__mute {
+            position: absolute;
+            top: 50px;
+            right: 12px;
+            height: 28px;
+            width: 28px;
+            cursor: pointer;
+            z-index: 1;
+            border-radius: 50%;
+            background: rgba(128, 128, 128, .2);
+            display: flex !important;
+            justify-content: center;
+            padding: 1px
+        }
+
+        .modal__title {
+            margin-bottom: 10px;
+            font-size: 22px;
+            line-height: 1.2;
+            color: #fff;
+            font-family: var(--font-title);
+            text-align: center
+        }
+
+        .modal__sub-title {
+            margin-bottom: 8px;
+            font-family: var(--font-description);
+            font-size: 1rem;
+            color: hsla(0, 0%, 100%, .7);
+            text-align: left
+        }
+
+        .modal__text {
+            font-family: var(--body-font-stack);
+            font-size: 14px;
+            color: #101b24;
+            line-height: 1.5
+        }
+
+        .modal__button-wrap {
+            display: flex;
+            margin-top: auto;
+            margin-left: 0;
+            justify-content: space-between
+        }
+
+        .modal__btn {
+            border-radius: 4px;
+            font-family: var(--font-button);
+            font-weight: 600;
+            min-height: 55px;
+            max-height: 55px;
+            width: 150px;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            text-align: center
+        }
+
+        .modal__btn--main {
+            color: #000;
+            font-size: 14px;
+            background-image: url(https://world-of-warcraft-dragon-flight.s3.us-west-2.amazonaws.com/Grey+WoW+Button.png);
+            background-size: 150px 55px;
+            background-repeat: no-repeat
+        }
+
+        .modal__btn--secondary {
+            color: #fff;
+            font-size: 14px;
+            background-image: url(https://world-of-warcraft-dragon-flight.s3.us-west-2.amazonaws.com/Blue+WoW+Button.png);
+            background-size: 150px 55px;
+            background-repeat: no-repeat
+        }
+
+        .hide {
+            display: none
+        }
+
+        .fade {
+            opacity: 0;
+            transition: opacity 1s ease-in-out
+        }
+
+        .show {
+            opacity: 1
+        }
+
+        .txt-style {
+            border-radius: 20px
+        }
+
+        @media (max-width:360px) and (min-width:0px) {
+            .modal__image {
+                height: 260px
+            }
+
+            .modal__title {
+                font-size: 19px
+            }
+
+            .modal__sub-title {
+                font-size: .7rem
+            }
+        }
+
+        @media (max-width:380px) and (min-width:350px),
+        (max-height:700px) and (min-height:600px) {
+            .modal__image {
+                height: 260px
+            }
+
+            .modal__title {
+                font-size: 19px
+            }
+
+            .modal__sub-title {
+                font-size: .7rem
+            }
+        }
+
+        @media (max-width:400px) and (min-width:380px),
+        (max-height:800px) and (min-height:700px) {
+            .modal__image {
+                height: 290px
+            }
+
+            .modal__title {
+                font-size: 20px
+            }
+
+            .modal__sub-title {
+                font-size: .9rem
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="overlay">
+        <div class="modal"><a data-button-id="close" class="modal__cross" onclick="brazeBridge.closeMessage()"><svg
+                    xmlns="http://www.w3.org/2000/svg" fill="none" stroke="rgba(0, 0, 0, 0.7)" stroke-linecap="round"
+                    stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" part="icon blz-icon">
+                    <path d="M18 6 6 18M6 6l12 12"></path>
+                </svg></a><a button-id="mute" class="modal__mute" onclick="toggleSound()"><svg
+                    xmlns="http://www.w3.org/2000/svg" fill="rgba(0, 0, 0, 0.7)" viewBox="0 0 640 512">
+                    <path
+                        d="M301.1 34.8C312.6 40 320 51.4 320 64V448c0 12.6-7.4 24-18.9 29.2s-25 3.1-34.4-5.3L131.8 352H64c-35.3 0-64-28.7-64-64V224c0-35.3 28.7-64 64-64h67.8L266.7 40.1c9.4-8.4 22.9-10.4 34.4-5.3zM425 167l55 55 55-55c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-55 55 55 55c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-55-55-55 55c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l55-55-55-55c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0z">
+                    </path>
+                </svg></a>
+            <div class="modal__image"><video id="video" muted autoplay playsinline>
+                    <source id="source" src="https://cdn.playable.video/editor/5881057547911168/clickplay.mp4"
+                        type="video/mp4">
+                </video></div>
+            <div class="modal__content">
+                <h1 id="title" class="modal__title">Take wing to a new beginning</h1>
+                <h2 id="sub_title" class="modal__sub-title">Join forces with the dragonflights of Azeroth as they return
+                    to the Dragon Isles, a lost realm of magic and wonder. There await the dracthyr evokers, an all-new
+                    playable race and class of humanoid dragonkin who stand ready to join the ranks of the Horde and
+                    Alliance.</h2>
+                <div id="options" class="modal__button-wrap hide fade"><a href="#" class="modal__btn modal__btn--main"
+                        onclick="PlayDracthyr()">Dracthyr</a><a href="#" class="modal__btn modal__btn--secondary"
+                        onclick="PlayDragonIsles()">Dragon Isles</a></div>
+                <div id="DracthyrDiv" class="modal__button-wrap hide fade"><a href="#"
+                        class="modal__btn modal__btn--main" onclick="PlayDragonIsles()">Dragon Isles</a><a
+                        href="https://us.shop.battle.net/en-gb/product/world-of-warcraft-the-war-within" target="_blank"
+                        class="modal__btn modal__btn--secondary">Pre-Purchase</a></div>
+                <div id="DragonIslesDiv" class="modal__button-wrap hide fade"><a href="#"
+                        class="modal__btn modal__btn--main" onclick="PlayDracthyr()">Dracthyr</a><a
+                        href="https://us.shop.battle.net/en-gb/product/world-of-warcraft-the-war-within" target="_blank"
+                        class="modal__btn modal__btn--secondary">Pre-Purchase</a></div>
+                <div id="modal_complete" class="modal__button-wrap hide fade"><a
+                        href="https://dragonflight.blizzard.com/en-us/" target="_blank"
+                        class="modal__btn modal__btn--main">Learn More</a><a
+                        href="https://us.shop.battle.net/en-gb/product/world-of-warcraft-the-war-within" target="_blank"
+                        class="modal__btn modal__btn--secondary">Pre-Purchase</a></div>
+            </div>
+        </div>
+    </div>
+    <script>let videoCurrent = '';
+        let videosPlayed = 0; // This will increment at the start of each video
+        let lastVideoSrc = ''; // To keep track of the last video source
+
+        let aud = document.getElementById("video");
+
+        // Increment videosPlayed at the start of each video
+        aud.addEventListener('play', function () {
+            if (aud.currentSrc !== lastVideoSrc) {
+                videosPlayed++;
+                lastVideoSrc = aud.currentSrc;
+                if (videosPlayed === 3) { // When the third video starts
+                    hideAllDivs();
+                    showDiv("modal_complete");
+                } else {
+                    showRelevantDiv();
+                }
+            }
+        });
+
+        function hideAllDivs() {
+            document.querySelectorAll('.modal__button-wrap').forEach((div) => {
+                div.classList.remove('show');
+                div.classList.add('hide');
+            });
+        }
+
+        function showDiv(id) {
+            const div = document.getElementById(id);
+            div.classList.remove('hide');
+            setTimeout(() => {
+                div.classList.add('show');
+            }, 10);
+        }
+
+        function showRelevantDiv() {
+            if (videoCurrent === '') {
+                showDiv("options");
+            } else if (videoCurrent === 'Dracthyr') {
+                showDiv("DracthyrDiv");
+            } else if (videoCurrent === 'DragonIsles') {
+                showDiv("DragonIslesDiv");
+            }
+        }
+
+        document.querySelectorAll('[data-button-id]').forEach(function (node) {
+            node.addEventListener('click', function () {
+                brazeBridge.closeMessage();
+            });
+        });
+
+        function toggleSound() {
+            var video = document.getElementById('video');
+            var muteButton = document.querySelector('.modal__mute');
+            video.muted = !video.muted;
+            console.log('Sound toggled. Muted:', video.muted);
+            if (video.muted) {
+                muteButton.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" fill="rgba(0, 0, 0, 0.7)" viewBox="0 0 640 512"><path d="M301.1 34.8C312.6 40 320 51.4 320 64V448c0 12.6-7.4 24-18.9 29.2s-25 3.1-34.4-5.3L131.8 352H64c-35.3 0-64-28.7-64-64V224c0-35.3 28.7-64 64-64h67.8L266.7 40.1c9.4-8.4 22.9-10.4 34.4-5.3zM425 167l55 55 55-55c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-55 55 55 55c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-55-55-55 55c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l55-55-55-55c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0z"></path></svg>';
+            } else {
+                muteButton.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" fill="rgba(0, 0, 0, 0.7)" viewBox="0 0 640 512"><path d="M533.6 32.5C598.5 85.3 640 165.8 640 256s-41.5 170.8-106.4 223.5c-10.3 8.4-25.4 6.8-33.8-3.5s-6.8-25.4 3.5-33.8C557.5 398.2 592 331.2 592 256s-34.5-142.2-88.7-186.3c-10.3-8.4-11.8-23.5-3.5-33.8s23.5-11.8 33.8-3.5zM473.1 107c43.2 35.2 70.9 88.9 70.9 149s-27.7 113.8-70.9 149c-10.3 8.4-25.4 6.8-33.8-3.5s-6.8-25.4 3.5-33.8C475.3 341.3 496 301.1 496 256s-20.7-85.3-53.2-111.8c-10.3-8.4-11.8-23.5-3.5-33.8s23.5-11.8 33.8-3.5zm-60.5 74.5C434.1 199.1 448 225.9 448 256s-13.9 56.9-35.4 74.5c-10.3 8.4-25.4 6.8-33.8-3.5s-6.8-25.4 3.5-33.8C393.1 284.4 400 271 400 256s-6.9-28.4-17.7-37.3c-10.3-8.4-11.8-23.5-3.5-33.8s23.5-11.8 33.8-3.5zM301.1 34.8C312.6 40 320 51.4 320 64V448c0 12.6-7.4 24-18.9 29.2s-25 3.1-34.4-5.3L131.8 352H64c-35.3 0-64-28.7-64-64V224c0-35.3 28.7-64 64-64h67.8L266.7 40.1c9.4-8.4 22.9-10.4 34.4-5.3z"></path></svg>';
+            }
+        }
+
+        function PlayDracthyr() {
+            videoCurrent = 'Dracthyr';
+            var video = document.getElementById('video');
+            const source = document.getElementById('source');
+            hideAllDivs();
+            let video_title = document.getElementById("title");
+            video_title.textContent = 'All-new Race: The Dracthyr';
+            video_title.style.fontSize = '20px';
+            let video_sub_title = document.getElementById("sub_title");
+            video_sub_title.textContent = 'Created by Neltharion the Earth-Warder, the essence of dragons was combined with the adaptability of the mortal races to create an elite soldier capable of switching from a draconic form to humanoid form.';
+            source.setAttribute('src', `https://cdn.playable.video/editor/6716589882474496/clickplay.mp4`);
+            video.load();
+        }
+
+        function PlayDragonIsles() {
+            videoCurrent = 'DragonIsles';
+            var video = document.getElementById('video');
+            const source = document.getElementById('source');
+            hideAllDivs();
+            let video_title = document.getElementById("title");
+            video_title.textContent = 'All-new Zone: The Dragon Isles';
+            let video_sub_title = document.getElementById("sub_title");
+            video_sub_title.textContent = 'The ancestral home of the dragonflights of Azeroth. When the world was broke apart in the Great Sundering, magic drained away and the land went dormant. As the Dragon Isles awaken, so too do old feuds and long-dormant threats.';
+            source.setAttribute('src', `https://cdn.playable.video/editor/4877861887148032/clickplay.mp4`);
+            video.load();
+        }</script>
+</body>
+
+</html>
